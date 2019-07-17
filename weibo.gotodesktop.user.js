@@ -129,7 +129,6 @@ if (s) {
   	if (intlel) {
       m = intlel.getAttribute('onclick');
       m = m && m.match(/forward\(0,([0-9]+)/);
-      m = m && m[1];
   	}
   }
   if (m) {
