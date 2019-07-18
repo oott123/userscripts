@@ -117,18 +117,21 @@ if (!uid) {
   avaintl = avaintl && avaintl.match(/forward\(([0-9]+)/);
   uid = avaintl && avaintl[1];
 }
-var s = location.href.match(/\/status\/([A-Za-z0-9]+)/);
+// status|detail 后可能是两种格式，一种纯数字，一种 base62
+// 检查是否为 15 位以内（数字一般16位）
+var s = location.href.match(/\/(?:status|detail)\/([A-Za-z0-9]{1,15})[^0-9]/);
 var url = '';
 if (s) {
   url = 'https://weibo.com/' + uid + '/' + s[1];
 } else {
-  var m = location.href.match(/\/detail\/([0-9]+)/) || 
+  var m = location.href.match(/\/(?:status|detail)\/([0-9]+)/) || 
   	location.href.match(/\?weibo_id=([0-9]+)/);
   if (!m) {
   	var intlel = document.querySelector('#app .footer_suspension > a[onclick]');
   	if (intlel) {
       m = intlel.getAttribute('onclick');
       m = m && m.match(/forward\(0,([0-9]+)/);
+      m = m && m[1];
   	}
   }
   if (m) {
