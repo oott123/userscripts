@@ -119,7 +119,7 @@ if (!uid) {
 }
 // status|detail 后可能是两种格式，一种纯数字，一种 base62
 // 检查是否为 15 位以内（数字一般16位）
-var s = location.href.match(/\/(?:status|detail)\/([A-Za-z0-9]{1,15})[^0-9]/);
+var s = location.href.match(/\/(?:status|detail)\/([A-Za-z0-9]{1,15})([^0-9]|$)/);
 var url = '';
 if (s) {
   url = 'https://weibo.com/' + uid + '/' + s[1];
