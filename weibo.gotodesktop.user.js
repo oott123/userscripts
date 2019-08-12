@@ -104,6 +104,13 @@ WeiboUtil.mid2url = function(mid) {
 		var num = mid.substring(offset1, offset2);
 		
 		num = this.int10to62(num);
+		if (offset1 > 0)	//若不是第一组，则不足4位补0
+		{
+			while (num.length < 4)
+			{
+				num = '0' + num;
+			}
+		}
 		url = num + url;
 	}
 	
