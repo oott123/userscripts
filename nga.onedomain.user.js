@@ -5,6 +5,7 @@
 // @match *://nga.178.com/*
 // @match *://ngabbs.com/*
 // @match *://www.ngabbs.com/*
+// @match *://g.nga.cn/*
 // @grant none
 // @run-at document-start
 // ==/UserScript==
