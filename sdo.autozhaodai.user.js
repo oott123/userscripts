@@ -67,6 +67,9 @@ async function runQueue(q, log) {
   const runTaskM = async (obj) => {
     if (obj.method === 'getReward') {
       const resp = await getReward(obj.id)
+      if (resp.Message === '成功') {
+        log.successCount++;
+      }
       log(`领取 ${obj.pt} 的奖励: ${resp.Message}`)
     } else if (obj.method === 'refresh') {
       const data = await refresh(obj.pt)
@@ -89,7 +92,7 @@ async function runQueue(q, log) {
   const runTask = async () => {
     clearTimeout(timer)
     if (queue.length <= 0) {
-      log('任务全部执行完成。')
+      log(`任务全部执行完成，成功领取招待奖励 ${log.successCount} 份`)
       return
     } else {
       log(`剩余 ${queue.length} 个任务，预计时间 ${(queue.length * 3 / 60).toFixed(1)} 分钟`)
@@ -135,6 +138,7 @@ function drawUI(container) {
   container.appendChild(logContainer)
 
   const log = createAddLog(logContainer)
+  log.successCount = 0
   
   getAllBtn.addEventListener('click', handleGetAllClick({ log }))
   
