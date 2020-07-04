@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name        自动领取招待奖励
 // @namespace   com.oott123.sdo.autozhaodai
-// @match       http://act.ff.sdo.com/20190315Zhaodai/index.html
+// @match       https://actff1.web.sdo.com/20190315Zhaodai/index.html
 // @grant       none
-// @version     1.0
+// @version     1.1
 // @author      -
 // @description 2/14/2020, 12:22:28 PM
 // ==/UserScript==
