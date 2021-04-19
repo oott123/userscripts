@@ -140,11 +140,10 @@ if (s) {
   	if (intlel) {
       m = intlel.getAttribute('onclick');
       m = m && m.match(/forward\(0,([0-9]+)/);
-      m = m && m[1];
   	}
   }
-  if (m) {
-  	url = 'https://weibo.com/' + uid + '/' + WeiboUtil.mid2url(m);
+  if (m && m[1]) {
+  	url = 'https://weibo.com/' + uid + '/' + WeiboUtil.mid2url(m[1]);
   }
 }
 
