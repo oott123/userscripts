@@ -4,6 +4,8 @@
 // @match *://m.weibo.cn/status/*
 // @match *://m.weibo.cn/detail/*
 // @match *://weibointl.api.weibo.cn/share/*
+// @match *://share.api.weibo.cn/share/*
+// @match *://weibointl.api.weibo.com/share/*
 // @grant none
 // ==/UserScript==
 
