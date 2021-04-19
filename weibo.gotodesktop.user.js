@@ -144,7 +144,7 @@ if (s) {
   	}
   }
   if (m) {
-  	url = 'https://weibo.com/' + uid + '/' + WeiboUtil.mid2url(m[1]);
+  	url = 'https://weibo.com/' + uid + '/' + WeiboUtil.mid2url(m);
   }
 }
 
