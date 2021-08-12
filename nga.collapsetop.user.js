@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name NGA 版头折叠
 // @namespace com.oott123.nga.collapsetop
-// @match https://bbs.nga.cn/thread.php
-// @run-at document-start
+// @match https://bbs.nga.cn/thread.php*
+// @run-at document-end
 // @grant none
 // ==/UserScript==
 
@@ -12,7 +12,6 @@ s.innerText = `
     display: none!important;
 }
 `
-document.head.appendChild(s)
 
 const btn = document.createElement('a')
 btn.href = 'javascript:;'
@@ -34,8 +33,7 @@ btn.onclick = function () {
   }
 }
 
-document.addEventListener('readystatechange', function () {
-  const top = document.querySelector('#toptopics')
-  top.style.position = 'relative'
-  top.appendChild(btn)
-})
+document.head.appendChild(s)
+const top = document.querySelector('#toptopics')
+top.style.position = 'relative'
+top.appendChild(btn)
