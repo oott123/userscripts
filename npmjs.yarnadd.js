@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        npm install to yarn add
 // @namespace   com.oott123.npmjs.yarnadd
-// @match       https://www.npmjs.com/package/@techstark/opencv-js
+// @match       https://www.npmjs.com/package/*
 // @grant       none
 // @version     1.0
 // @author      -
