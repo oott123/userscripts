@@ -8,7 +8,7 @@
 // @version     1.0
 // @author      -
 // @run-at      document-start
-// @description 跳转到维基百科不转换，跳转萌百网页到不转换 PC
+// @description 跳转到维基百科简体中文，跳转萌百网页到简体中文 PC
 // ==/UserScript==
 
 function fixLink() {
@@ -27,8 +27,8 @@ function fixLink() {
     changed = true
   }
 
-  if (newUrl.pathname.startsWith('/zh-')) {
-    newUrl.pathname = newUrl.pathname.replace(/^\/zh-\w+/, '/zh')
+  if (newUrl.pathname.startsWith('/zh') && !newUrl.pathname.startsWith('/zh-cn')) {
+    newUrl.pathname = newUrl.pathname.replace(/^\/zh-?\w*/, '/zh-cn')
     changed = true
   }
 
