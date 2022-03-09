@@ -134,7 +134,8 @@ if (s) {
   url = 'https://weibo.com/' + uid + '/' + s[1];
 } else {
   var m = location.href.match(/\/(?:status|detail)\/([0-9]+)/) || 
-  	location.href.match(/\?weibo_id=([0-9]+)/);
+  	location.href.match(/\?weibo_id=([0-9]+)/) || 
+    location.href.match(/share\/[0-9+],([0-9]+)\.html/);
   if (!m) {
   	var intlel = document.querySelector('#app .footer_suspension > a[onclick]');
   	if (intlel) {
@@ -143,7 +144,11 @@ if (s) {
   	}
   }
   if (m && m[1]) {
-  	url = 'https://weibo.com/' + uid + '/' + WeiboUtil.mid2url(m[1]);
+    if (uid || location.host == 'm.weibo.cn') {
+      url = 'https://weibo.com/' + (uid || 0) + '/' + WeiboUtil.mid2url(m[1]);
+    } else {
+      url = 'https://m.weibo.cn/status/' + m[1];
+    }
   }
 }
 
