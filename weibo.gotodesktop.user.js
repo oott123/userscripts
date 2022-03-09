@@ -130,6 +130,7 @@ if (!uid) {
 // 检查是否为 15 位以内（数字一般16位）
 var s = location.href.match(/\/(?:status|detail)\/([A-Za-z0-9]{1,15})([^0-9]|$)/);
 var url = '';
+var url2 = '';
 if (s) {
   url = 'https://weibo.com/' + uid + '/' + s[1];
 } else {
@@ -144,10 +145,9 @@ if (s) {
   	}
   }
   if (m && m[1]) {
-    if (uid || location.host == 'm.weibo.cn') {
-      url = 'https://weibo.com/' + (uid || 0) + '/' + WeiboUtil.mid2url(m[1]);
-    } else {
-      url = 'https://m.weibo.cn/status/' + m[1];
+    url = 'https://weibo.com/' + (uid || 0) + '/' + WeiboUtil.mid2url(m[1]);
+    if (location.host !== 'm.weibo.cn') {
+      url2 = 'https://m.weibo.cn/status/' + m[1];
     }
   }
 }
@@ -155,8 +155,20 @@ if (s) {
 if (url) {
   var el = document.createElement('a');
   el.style = 'display: flex;position: fixed;top: 30px;right: 30px;width: 90px;height: 45px;z-index: 999;background: #4a4a4a;border-radius: 999px;align-items: center;justify-content: center;color: #fff;';
-  el.innerText = '电脑版';
+  if (uid) {
+    el.innerText = '电脑版';
+  } else {
+    el.innerText = '新首页';
+  }
   el.href = url;
+  document.body.appendChild(el);
+}
+  
+if (url2) {
+  var el = document.createElement('a');
+  el.style = 'display: flex;position: fixed;top: 90px;right: 30px;width: 120px;height: 45px;z-index: 999;background: #4a4a4a;border-radius: 999px;align-items: center;justify-content: center;color: #fff;';
+  el.innerText = '官方手机版';
+  el.href = url2;
   document.body.appendChild(el);
 }
 
