@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        NGA 表情加文本
 // @namespace   com.oott123.nga.smiletext
-// @match       https://bbs.nga.cn/read.php
+// @match       https://nga.178.com/read.php
 // @grant       none
 // @version     1.0
 // @author      -
