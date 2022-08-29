@@ -1,7 +1,8 @@
 // ==UserScript==
 // @name NGA 版头折叠
 // @namespace com.oott123.nga.collapsetop
-// @match https://nga.178.com/*
+// @match https://nga.178.com/thread.php
+// @match https://nga.178.com/thread.php*
 // @run-at document-end
 // @grant none
 // ==/UserScript==
