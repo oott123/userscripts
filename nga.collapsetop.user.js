@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name NGA 版头折叠
 // @namespace com.oott123.nga.collapsetop
-// @match https://bbs.nga.cn/thread.php*
+// @match https://nga.178.com/*
 // @run-at document-end
 // @grant none
 // ==/UserScript==
@@ -33,7 +33,9 @@ btn.onclick = function () {
   }
 }
 
-document.head.appendChild(s)
 const top = document.querySelector('#toptopics')
-top.style.position = 'relative'
-top.appendChild(btn)
+if (top) {
+  document.head.appendChild(s)
+  top.style.position = 'relative'
+  top.appendChild(btn)
+}
