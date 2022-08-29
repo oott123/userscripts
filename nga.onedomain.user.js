@@ -10,6 +10,13 @@
 // @run-at document-start
 // ==/UserScript==
 
-if (location.hostname !== 'bbs.nga.cn') {
-  location.hostname = 'bbs.nga.cn';
+const oldUrl = new URL(location.href)
+if (oldUrl.hostname !== 'nga.178.com') {
+  oldUrl.hostname = 'nga.178.com';
+}
+if (oldUrl.protocol !== 'https:') {
+  oldUrl.protocol = 'https:';
+}
+if (oldUrl.toString() !== location.href) {
+  location.replace(oldUrl.toString());
 }
