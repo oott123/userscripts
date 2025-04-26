@@ -75,6 +75,7 @@
 // @match *://tmall.hk/*
 // @match *://xiami.com/*
 // @match *://tbcdn.cn/*
+// @match *://*.goofish.com/*
 // @run-at       document-start
 // ==/UserScript==
 
